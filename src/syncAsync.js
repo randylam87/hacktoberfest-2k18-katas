@@ -4,8 +4,9 @@
 // Each function passed to syncAsync can be synchronious or asynchronious.
 // It can invoked with a callback as first parameter.
 
+const queue = [];
+const cb = () => queue.shift() && queue.length > 0 && queue[0](cb);
+
 export const syncAsync = (func) => {
-    // func can be called with a callback that will be invoked when it is finished.
-    //
-    // func(callback);
+  queue.push(func) && queue.length === 1 && queue[0](cb);
 };
