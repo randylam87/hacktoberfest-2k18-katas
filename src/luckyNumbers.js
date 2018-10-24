@@ -16,5 +16,15 @@
  */
 
 export function* luckyNumbers() {
-  // TO IMPLEMENT IN ANOTHER PR
+  let lucky = new Array(100000).fill(0).map((v,i) => i+1);
+  for (let i = 2; i < lucky.length;) {
+      for (let j = i; j <= lucky.length; j+=i) {
+          lucky[j-1] = 0;
+      }
+      lucky = lucky.filter(v => v !== 0);
+      i = lucky.find(v => v >= i + 1);
+  }
+  for (const l of lucky) {
+    yield l;
+  }
 }
