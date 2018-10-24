@@ -5,7 +5,7 @@ describe('mathEquation', () => {
     expect(mathEquation('1+123=124')).toBeTruthy();
     expect(mathEquation('43/2=21.5')).toBeTruthy();
     expect(mathEquation('10.5-2.5=8')).toBeTruthy();
-    expect(mathEquation('.5*10.=5)).toBeTruthy();
+    expect(mathEquation('.5*10.=5')).toBeTruthy();
   });
 
   it('the given equation is invalid', () => {
