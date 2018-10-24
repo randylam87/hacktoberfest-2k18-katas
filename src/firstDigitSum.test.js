@@ -9,9 +9,6 @@ describe('firstDigitSum valid args', () => {
   });
 
   it('firstDigitSum invalid args', () => {
-    expect(() => firstDigitSum()).toThrow();
-    expect(() => firstDigitSum(0)).toThrow();
-    expect(() => firstDigitSum(51)).toThrow();
     expect(() => firstDigitSum('hola')).toThrow();
     expect(() => firstDigitSum([])).toThrow();
     expect(() => firstDigitSum({})).toThrow();
