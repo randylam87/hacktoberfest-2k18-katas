@@ -1,34 +1,14 @@
 import { minSwaps } from './minSwaps';
 
-/*
- * Example of the assertions you can use for your tests:
- *
- * - Testing equality between the function's output and a constant:
- * expect(minSwaps()).toEqual(123);
- *
- * - Testing that the function returns null:
- * expect(minSwaps()).toBeNull();
- *
- * - Testing that the function returns a falsy value (eg. false, 0, "")
- * expect(minSwaps()).toBeFalsy();
- *
- * - Testing that the function returns a truthy value (eg. true, 1, "abc")
- * expect(minSwaps()).toBeTruthy();
- *
- * - Testing that the function throws
- * expect(() => { minSwaps(); }).toThrow();
- */
-
 describe('minSwaps', () => {
-  it('minSwaps does this thing...', () => {
-    // TODO Your own assertion here
+  it('returns the correct number of swaps needed', () => {
+    expect(minSwaps([4,3,1,2])).toEqual(3);
+    expect(minSwaps([2,3,4,1,5])).toEqual(3);
+    expect(minSwaps([1,3,5,2,4,6,8])).toEqual(3);
+    expect(minSwaps([1,5,4,3,2])).toEqual(2);
   });
 
-  it('minSwaps does that other thing...', () => {
-    // TODO Your own assertion here
-  });
-
-  it('minSwaps does a very cool thing...', () => {
-    // TODO Your own assertion here
+  it('should return 0 for an empty array', () => {
+    expect(minSwaps([])).toEqual(0);
   });
 });
