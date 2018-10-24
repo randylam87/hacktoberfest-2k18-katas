@@ -1,3 +1,1 @@
-export const smallestNumberInArray = () => {
-  // TO IMPLEMENT IN ANOTHER PR
-};
+export const smallestNumberInArray = arr => Math.min(...arr);
