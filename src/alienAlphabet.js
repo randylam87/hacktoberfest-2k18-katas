@@ -8,6 +8,13 @@
  */
 
 export const alienAlphabet = (words) => {
-  // Implement me
-  return [];
+  var s;
+  var results=[];
+for (s of words) {
+  for(var i=0;i<s.length;i++) {
+	if(results.indexOf(s.charAt(i))==-1)
+		results.push(s.charAt(i));
+  }
+}
+  return results;
 }
