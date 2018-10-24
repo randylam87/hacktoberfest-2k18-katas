@@ -1,3 +1,4 @@
-export const inchesToCentimeters = () => {
-  // TO IMPLEMENT IN ANOTHER PR
-};
+export const inchesToCentimeters = (num) => {
+  if (!Number.isFinite(num)) throw new Error('Invalid argument.');
+  return Number.parseFloat((num * 2.54).toFixed(2));
+}
