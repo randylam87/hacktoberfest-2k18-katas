@@ -36,10 +36,10 @@ describe("humanReadableDuration", () => {
   });
 
   it("humanReadableDuration handles invalid input", () => {
-    expect(humanReadableDuration()).toThrow();
-    expect(humanReadableDuration("test")).toThrow();
-    expect(humanReadableDuration(123.456)).toThrow();
-    expect(humanReadableDuration(-987)).toThrow();
-    expect(humanReadableDuration(false)).toThrow();
+    expect(() => humanReadableDuration()).toThrow();
+    expect(() => humanReadableDuration("test")).toThrow();
+    expect(() => humanReadableDuration(123.456)).toThrow();
+    expect(() => humanReadableDuration(-987)).toThrow();
+    expect(() => humanReadableDuration(false)).toThrow();
   });
 });
