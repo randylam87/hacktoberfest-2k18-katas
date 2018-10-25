@@ -33,14 +33,8 @@ describe('takeRight', () => {
     });
 
     it('takeRight correctly...', () => {
-        expect(() => {
-            takeRight([1, 3, 5, 7])
-        }).toEqual([7]);
-        expect(() => {
-            takeRight([2, 4, 6, 8, 10], 2)
-        }).toEqual([8, 10]);
-        expect(() => {
-            takeRight('hello',3)
-        }).toEqual('llo');
+        expect(takeRight([1, 3, 5, 7])).toEqual([7]);
+        expect(takeRight([2, 4, 6, 8, 10], 2)).toEqual([8, 10]);
+        expect(takeRight('hello', 3)).toEqual('llo');
     });
 });
