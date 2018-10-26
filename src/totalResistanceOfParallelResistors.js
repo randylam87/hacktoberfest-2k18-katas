@@ -15,5 +15,5 @@ export const totalResistanceOfParallelResistors = function(parallelConnectedResi
     totalInvert += 1 / arguments[i];
   }
   totalResistance = 1 / totalInvert;
-  return totalResistance.toFixed(2);
+  return +totalResistance.toFixed(2);
 };
