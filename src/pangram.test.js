@@ -35,7 +35,7 @@ describe('pangram valid', () => {
 
 describe('pangram invalid args', () => {
   it('should throw error w/ null arg', () => {
-    expect(pangram(null)).toThrow()
-    expect(pangram()).toThrow()
+    expect(() => pangram(null)).toThrow()
+    expect(() => pangram()).toThrow()
   });
 });
