@@ -1,4 +1,6 @@
-import { findFinalVelocityOfAnObject as findVFinal } from './findFinalVelocityOfAnObject';
+import {
+  findFinalVelocityOfAnObject as findVFinal
+} from './findFinalVelocityOfAnObject';
 
 describe('findFinalVelocityOfAnObject', () => {
   it('F = 3N, t=300ms w = 300g, v = 3m/s should have 6m/s as final speed.', () => {
@@ -10,11 +12,13 @@ describe('findFinalVelocityOfAnObject', () => {
   });
 
   it('F = 13N, t=7s w = 1kg, v = 13.37km/h should have 94.71m/s as final speed.', () => {
-    expect(findVFinal("13N", "7s", "1kg", "13.37m/s")).toBe("94.71m/s");
+    // expect(findVFinal("13N", "7s", "1kg", "13.37m/s")).toBe("94.71m/s");
+    expect(findVFinal("13N", "7s", "1kg", "13.37km/h")).toBe("94.71m/s");
   });
 
   it('F = 10N, t=1s w = 100kg, v = 0.2m/s should have 0.3m/s as final speed.', () => {
-    expect(findVFinal("10N", "1s", "100kg", "0.2m/s")).toBe("0.2m/s");
+    // expect(findVFinal("10N", "1s", "100kg", "0.2m/s")).toBe("0.2m/s");
+    expect(findVFinal("10N", "1s", "100kg", "0.2m/s")).toBe("0.3m/s");
   });
 
   it('Not having F should throw "Force is required"', () => {
