@@ -1,4 +1,5 @@
 export const groupBy = (numbers, ...functions) => {
+  const obj = {};
   if (numbers === undefined) {
     return {};
   }
@@ -6,19 +7,27 @@ export const groupBy = (numbers, ...functions) => {
   if (functions.length === 0) {
     return { [functions[0]]: numbers };
   } else {
-    const obj = {};
-
-    for (const func of functions) {
-      for (const number of numbers) {
-        if (!Array.isArray(obj[func(number)])) {
-          obj[func(number)] = [number];
-        } else {
-          obj[func(number)].push(number);
+    while (functions.length) {
+      if (JSON.stringify(Object.keys(obj)) === "[]") {
+        for (const number of numbers) {
+          if (!Array.isArray(obj[functions[0](number)])) {
+            obj[functions[0](number)] = [number];
+          } else {
+            obj[functions[0](number)].push(number);
+          }
         }
         console.log(obj);
+      } else {
+        console.log(Object.keys(obj));
+        for (const key of Object.keys(obj)) {
+          console.log(obj[key]);
+          console.log(functions);
+          obj[key] = groupBy(obj[key], functions);
+        }
       }
+      functions.shift();
     }
-
+    console.log(obj);
     return obj;
   }
 };
