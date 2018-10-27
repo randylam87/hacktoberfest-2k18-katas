@@ -1,5 +1,5 @@
 export const groupBy = (numbers, ...functions) => {
-  const obj = {};
+  const groupedNumbers = {};
   if (numbers === undefined) {
     return {};
   }
@@ -8,26 +8,35 @@ export const groupBy = (numbers, ...functions) => {
     return { [functions[0]]: numbers };
   } else {
     while (functions.length) {
-      if (JSON.stringify(Object.keys(obj)) === "[]") {
+      if (JSON.stringify(Object.keys(groupedNumbers)) === "[]") {
         for (const number of numbers) {
-          if (!Array.isArray(obj[functions[0](number)])) {
-            obj[functions[0](number)] = [number];
+          if (!Array.isArray(groupedNumbers[functions[0](number)])) {
+            groupedNumbers[functions[0](number)] = [number];
           } else {
-            obj[functions[0](number)].push(number);
+            groupedNumbers[functions[0](number)].push(number);
           }
         }
-        console.log(obj);
       } else {
-        console.log(Object.keys(obj));
-        for (const key of Object.keys(obj)) {
-          console.log(obj[key]);
-          console.log(functions);
-          obj[key] = groupBy(obj[key], functions);
+        for (const key of Object.keys(groupedNumbers)) {
+          groupedNumbers[key] = deeperGroupBy(groupedNumbers[key], functions);
         }
       }
       functions.shift();
     }
-    console.log(obj);
-    return obj;
+    return groupedNumbers;
   }
 };
+
+function deeperGroupBy(numbers, arrayOfFunctions) {
+  const obj = {}
+  if (JSON.stringify(Object.keys(obj)) === "[]") {
+    for (const number of numbers) {
+      if (!Array.isArray(obj[arrayOfFunctions[0](number)])) {
+        obj[arrayOfFunctions[0](number)] = [number];
+      } else {
+        obj[arrayOfFunctions[0](number)].push(number);
+      }
+    }
+  }
+  return obj;
+}
