@@ -1,3 +1,3 @@
-export const stopApologizing = () => {
-  // TO IMPLEMENT IN ANOTHER PR
+export const stopApologizing = (str = '') => {
+  return str.replace(/sorry/, 'thanks');
 };

@@ -6,9 +6,8 @@ describe('stopApologizing', () => {
       'thanks for taking your time'
     );
 
-    expect(stopApologizing("I don't know what I'm doing, sorry").toEqual(
+    expect(stopApologizing("I don't know what I'm doing, sorry")).toEqual(
       "I don't know what I'm doing, thanks"
-    ));
+    );
   });
-
 });
