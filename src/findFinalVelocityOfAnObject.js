@@ -13,5 +13,53 @@
 // km/h stands for kilometer over second(s)
 
 export const findFinalVelocityOfAnObject = (force, time, weight, initialSpeed) => {
-  // TO IMPLEMENT IN ANOTHER PR
+
+  if (null === force) {
+    throw 'Force is required'
+  }
+  if (null === time) {
+    throw 'Time is required'
+  }
+  if (null === weight) {
+    throw 'Weight is required'
+  }
+  if (null === initialSpeed) {
+    throw 'Initial Velocity is required'
+  }
+
+  // convert mass to Kgs and time to sec and velocity to m/s
+  var t;
+  if (time.toLowerCase().indexOf('ms') !== -1) {
+    t = time.replace('ms', '') / 1000;
+  } else {
+    t = time.replace('s', '');
+  }
+  t = Number(t);
+  var m;
+  if (!(weight.toLowerCase().indexOf('kg') !== -1)) {
+    m = weight.replace('g', '') / 1000;
+  } else {
+    m = weight.replace('kg', '');
+  }
+  m = Number(m);
+  var v;
+  if (initialSpeed.toLowerCase().indexOf('km/h') !== -1) {
+    v = initialSpeed.replace('km/h', '');
+    v = (v * 5) / 18;
+  } else {
+    v = initialSpeed.replace('m/s', '');
+  }
+  v = Number(v);
+  var f = Number(force.replace('N', ''));
+
+  var fVelocity = (v + (f / m) * t);
+  if (isFloat(fVelocity)) {
+    fVelocity = fVelocity.toFixed(2)
+  }
+
+  return parseFloat(fVelocity) + 'm/s';
 };
+
+function isFloat(n) {
+  return Number(n) === n && n % 1 !== 0;
+}
